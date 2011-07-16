@@ -1,0 +1,153 @@
+<html>
+<head>
+  <title>Mashboard</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  <link rel="icon" type="image/png" href="iui/iui-favicon.png">
+  <link rel="apple-touch-icon" href="iui/iui-logo-touch-icon.png" />
+  <!--
+  Don't enable web-app-capable yet, because the CSS is sized for having Safari's top bar
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  -->
+  <link rel="stylesheet" href="iui/iui.css" type="text/css" />
+  <link rel="stylesheet" title="Default" href="iui/t/default/default-theme.css"  type="text/css"/>
+  <link rel="stylesheet" href="css/iui-panel-list.css" type="text/css" />
+  <link rel="stylesheet" href="iui/ext-sandbox/iscroll/iui-iscroll.css" type="text/css" />
+  <script type="application/x-javascript" src="iui/iui.js"></script>
+  <script type="application/x-javascript" src="iui/ext-sandbox/iscroll/iscroll.js"></script>
+  <script type="application/x-javascript" src="iui/ext-sandbox/iscroll/iui-iscroll.js"></script>
+  <script>
+  	iui.debug = true;  // enable portrait/landscape swapping in desktop browser for debugging
+  </script>
+</head>
+<body>
+  <div id="iui-container">
+    <div class="toolbar">
+        <h1 id="pageTitle"></h1>
+        <a id="backButton" class="button" href="#"></a>
+    </div>
+
+	<div id="home" title="iuiPad" selected="true">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#about">About Mashboard</a></li>
+					<li><a href="#widgets">Widgets</a></li>
+					<li><a href="#datasources">Data Sources</a></li>
+					<li><a href="#mashboards">Mashboards</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="widgets" title="Widgets">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#ticker">Ticker</a></li>
+					<li><a href="#html">HTML</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="datasources" title="Data Sources">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#twitter">Twitter</a></li>
+					<li><a href="#github">GitHub</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="mashboards" title="Mashboards">
+		<div class="wrapper">
+			<div class="scroller">
+				<ul>
+					<li><a href="#demo1">Mashboard 1</a></li>
+					<li><a href="#demo2">Mashboard 2</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="ticker" class="panel content content-pane" title="Ticker">
+	  <h2>Ticker Widget Goes Here</h2>
+	  <ul>
+		<li>Description</li>
+		<li>Demo Panel</li>
+		<li>Sample Data</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+	
+	<div id="html" class="panel content content-pane" title="HTML">
+	  <h2>HTML Widget Goes Here</h2>
+	  <ul>
+		<li>Description</li>
+		<li>Demo Panel</li>
+		<li>Sample Data</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+
+	<div id="twitter" class="panel content content-pane" title="Twitter">
+	  <h2>Twitter DataSource Goes Here</h2>
+	  <ul>
+		<li>Description</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+
+	<div id="github" class="panel content content-pane" title="GitHub">
+	  <h2>GitHub DataSource Goes Here</h2>
+	  <ul>
+		<li>Description</li>
+		<li>JS Source</li>
+	  </ul>
+	</div>
+
+	<div id="demo1" class="panel content content-pane" title="Mashboard 1">
+	  <h2>Mashboard 1</h2>
+	  <ul>
+		<li>List of Widgets, Coordinates, & Parameters</li>
+		<li>Run/Fullscreen Button</li>
+	  </ul>
+	</div>
+
+
+	<div id="demo2" class="panel content content-pane" title="Mashboard 2">
+	  <h2>Mashboard 2</h2>
+	  <ul>
+		<li>List of Widgets, Coordinates, & Parameters</li>
+		<li>Run/Fullscreen Button</li>
+	  </ul>
+	</div>
+
+		
+	<div id="about" class="panel content" title="About">
+	  <h2>About Mashboard</h2>
+	  <ul>
+		<li><a target="_blank" href="https://github.com/mikhailxu/Mashboard">Mashboard on GitHub</a></li>
+		<li><a target="_blank" href="http://code.google.com/p/iui/">iUI Project</a></li>
+	  </ul>
+	</div>
+</div>
+
+  <div id="iuipad-content-panel">
+    <div class="toolbar">
+        <h1 id="contentTitle"></h1>
+        <a class="button leftButton" href="javascript:iui.popover_toc()" id="toc_button">TOC</a>
+    </div>
+    <div class="wrapper">
+      <div class="scroller">
+        <div id="iuipad-content">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
