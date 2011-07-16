@@ -500,7 +500,7 @@ fieldset > .row:last-child {
   color: #ffffff;
   padding-left: 5px;
   padding-right: 5px;
-  -webkit-border-image: url(../../iui/ext-sandbox/ipad/UINavigationBarDefaultBackPressed.png) 0 4 0 12 stretch stretch !important;
+  -webkit-border-image: url(ext-sandbox/ipad/UINavigationBarDefaultBackPressed.png) 0 4 0 12 stretch stretch !important;
 }
 
 #iuipad-content-panel {
