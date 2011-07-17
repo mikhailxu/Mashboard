@@ -78,7 +78,8 @@
 
 	<div id="ticker" class="panel content content-pane" title="Ticker">
 	  <h2>Ticker Widget Goes Here</h2>
-	  <span class="ticker">Ticker content</span>
+          <span class="ticker">Ticker content</span>
+          <span class="ticker2">Ticker stuff</span>
 	  <ul>
 		<li>Description</li>
 		<li>Demo Panel</li>
@@ -156,13 +157,24 @@
   <script>
     var tick = new Ticker(".ticker");
     var githubDS = new DataSource({
-      url: "https://github.com/api/v2/json/repos/show/mikhailxu/Mashboard", 
+      url: "https://github.com/api/v2/json/commits/list/mikhailxu/Mashboard/master", 
       process: function(data) {
-        this.emit(data.repository.pushed_at)
+        this.emit(data.commits.committed_date)
       }
     });
     tick.addDataSource(githubDS);
     githubDS.startup();
+
+    var ticktwitter = new Ticker(".ticker2");
+    var twitterDS = new DataSource({
+      url: "http://search.twitter.com/search.json?q=%23pic&rpp=500",
+      process: function(data){
+          this.emit(data.results.created_at);
+      }
+    }); 
+    tick.addDataSource(twitterDS);
+    twitterDS.startup();
+
   </script>
 </body>
 </html>
