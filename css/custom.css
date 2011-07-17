@@ -1,3 +1,11 @@
 #iuipad-content-panel{
     background:url("../images/black_paper.png");
 }
+.ticket-entry{
+    width:90%;
+    margin:0 auto;
+    clear:both;
+    background:url('../images/handmadepaper.png');
+    padding:10px;
+    border-radius:5px;
+}
