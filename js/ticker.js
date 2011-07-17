@@ -12,5 +12,3 @@ $.extend(Ticker.prototype, {
     source.publish();
   }
 });
-
-
