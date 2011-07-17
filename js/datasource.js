@@ -11,19 +11,21 @@ function DataSource(options) {
     this.request = DataSource.defaults.request;
   }
   this.process = options.process;
-  this.interval = options.interval || 1000*20;
+  this.interval = options.interval || 1000*1;
   this.retain = options.retain || 32;
 }
 DataSource.uid = 0;
 
 DataSource.defaults = {
   request: function() {
+    var self = this;
     $.ajax({
       url: this.url,
-      jsonp: 'DataSource_' + this.uid + '_load'
-      success: function(data, xhr, status) {
-	console.log(status);
-	this.process(data);
+      dataType: 'jsonp',
+      jsonpCallback: 'DataSource_' + this.uid + '_load',
+      success: function(data, status) {
+	self.process(data);
+	self.publish();
       }
     });
   }
@@ -33,7 +35,9 @@ $.extend(DataSource.prototype, {
   startup: function() {
     var self = this;
     this.shutdown();
+    console.log("startup!");
     this.interval_id = setInterval(function() {
+    console.log("request!");
       self.request();
     }, this.interval); 
   },
@@ -51,8 +55,8 @@ $.extend(DataSource.prototype, {
     }
   },
   emit: function(element) {
+    console.log("emit", element);
     this.dataset.push(element);
-    this.publish();
   },
   addListener: function(listener, obj) {
     this.listeners.push({

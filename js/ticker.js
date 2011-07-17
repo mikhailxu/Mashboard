@@ -1,10 +1,11 @@
-function Ticker(node) {
-  this.node = node;
+function Ticker(selector) {
+  this.selector = selector;
 }
 
 $.extend(Ticker.prototype, {
   hear: function(data) {
-    this.node.appendText(data);
+    console.log('hear: ', data);
+    $(this.selector).text(data);
   },
   addDataSource: function(source) {
     source.addListener(this.hear, this);
