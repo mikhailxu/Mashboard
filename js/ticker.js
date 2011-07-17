@@ -1,11 +1,11 @@
-function Ticker(selector) {
+function Ticker(selector, format) {
   this.selector = selector;
+  this.format = format;
 }
 
 $.extend(Ticker.prototype, {
   hear: function(data) {
-    console.log('hear: ', data);
-    $(this.selector).text(data);
+    $(this.selector).append(this.format(data));
   },
   addDataSource: function(source) {
     source.addListener(this.hear, this);

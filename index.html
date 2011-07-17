@@ -19,6 +19,9 @@
   <script type="application/x-javascript" src="js/jquery-1.6.2.js"></script>
   <script type="application/x-javascript" src="js/datasource.js"></script>
   <script type="application/x-javascript" src="js/ticker.js"></script>
+  <script type="application/x-javascript" src="js/layer.js"></script>
+  <script type="application/x-javascript" src="js/jquery-1.5.hack.js"></script>
+  <script type="application/x-javascript" src="js/template.js"></script>
   <script>
   	iui.debug = true;  // enable portrait/landscape swapping in desktop browser for debugging
   </script>
@@ -83,7 +86,7 @@
               <span class="entry-name">Sean Gilligan</span>
               <span class="entry-type">commited</span>
               <span class="entry-body">copy ipad-demo.html up from samples subdir, fix paths, copy iui-pa</span>
-              <span class="entry-happened"></span>
+              <span class="entry-happened">on</span>
               <span class="entry-time">three hours ago</span>
           </div>
           
@@ -163,28 +166,46 @@
   </div>
 
   <script>
-    var tick = new Ticker(".ticker");
+    $('.ticket-entry').defineTemplate('ticket-entry', {
+       $in: "...data",
+       '.entry-name' : '.author.name',
+       '.entry-type' : function() { return "<<compute data type here>>"; },
+       '.entry-body' : '.message',
+       '.entry-happened' : '.commited_date',
+       '.entry-time' : function() { return "<<compute time here>>"; }
+    });
+    var tick = new Ticker(".ticker", function(commit) {
+      var container = $("<span/>");
+      var content = $("<span/>").appendTo(container);
+      content.template(new Template.ViewModel({commit: commit}), {
+        $template: '=ticket-entry',
+        '...data' : '.commit'
+      });
+      return container.contents();
+    });
     var githubDS = new DataSource({
       url: "https://github.com/api/v2/json/commits/list/mikhailxu/Mashboard/master", 
       process: function(data) {
         for(var i=0; i<data.commits.length; i++) {
-          this.emit(data.commits[i].committed_date);
+          this.emit(data.commits[i]);
         }
       }
     });
     tick.addDataSource(githubDS);
     githubDS.startup();
 
-    var ticktwitter = new Ticker(".ticker2");
+    var ticktwitter = new Ticker(".ticker2", function(tweet) { 
+	return $("<span/>").text("Hello?");
+    });
     var twitterDS = new DataSource({
       url: "http://search.twitter.com/search.json?q=%23pic&rpp=500",
       process: function(data){
-          for(var i=0; i<data.results.length; i++) {
-            this.emit(data.results[i].created_at);
-          }
+        for(var i=0; i<data.results.length; i++) {
+          this.emit(data.results[i]);
+        }
       }
     });
-    tick.addDataSource(twitterDS);
+    ticktwitter.addDataSource(twitterDS);
     twitterDS.startup();
 
   </script>
