@@ -165,7 +165,7 @@
        '.entry-type' : '...type',
        '.entry-body' : '...body',
        '.entry-happened' : function() { return "on";},
-       '.entry-time' : function() { return "<<compute time here>>"; }
+       '.entry-time' : '...happened'
     });
     var tick = new Ticker(".ticker", function(commit) {
       var container = $("<span/>");
@@ -174,7 +174,7 @@
         $template: '=ticket-entry',
         '...name' : '.author.name',
 	'...body' : '.message',
-	'...happened' : '.committed_time',
+	'...happened' : '.authored_date',
 	'...type' : function() { return "committed"; }
       });
       return container.contents();
