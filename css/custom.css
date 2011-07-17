@@ -10,6 +10,7 @@
     border-radius:5px;
     -webkit-box-shadow: #999 1px 1px 6px;
     height: 38px;
+    margin-bottom:20px;
 }
 .ticket-entry .entry-body{
     text-overflow: ellipsis;
