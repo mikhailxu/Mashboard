@@ -27,7 +27,10 @@ body{
     font-family: 'helvetica neue';
 }
 #iuipad-content-panel{
-    width: 700px;
+    width: 705px;
+}
+#iuipad-content-panel > .toolbar{
+    width: 705px;
 }
 body, #iui-container > div{
     background:url("../images/whitey.png");
