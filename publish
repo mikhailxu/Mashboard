@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd "`dirname $0`"
+
+rm -rf mikhailxu.github.com
+mkdir mikhailxu.github.com
+cp -r images css js iui index.html mikhailxu.github.com
+cd mikhailxu.github.com
+git init
+git remote add target git@github.com:mikhailxu/mikhailxu.github.com.git
+git add * 
+git commit -m "$USER: `date`"
+git push --force target master
