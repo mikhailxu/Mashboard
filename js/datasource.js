@@ -1,4 +1,3 @@
-
 function DataSource(options) {
   this.uid = DataSource.uid++;
   this.dataset_index = 0;
@@ -13,6 +12,7 @@ function DataSource(options) {
   this.process = options.process;
   this.interval = options.interval || 1000*15;
   this.retain = options.retain || 10;
+  this.process_self = Object.create(this);
 }
 DataSource.uid = 0;
 
@@ -24,7 +24,7 @@ DataSource.defaults = {
       dataType: 'jsonp',
       jsonpCallback: 'DataSource_' + this.uid + '_load',
       success: function(data, status) {
-	self.process(data);
+	self.process.call(self.process_self, data);
 	self.publish();
       }
     });
@@ -43,8 +43,6 @@ $.extend(DataSource.prototype, {
   shutdown: function() {
     if(this.interval_id) clearInterval(this.interval_id);
     delete this.interval_id;
-  },
-  request: function() {
   },
   truncate: function(maxlength) {
     if(this.dataset.length > maxlength) {
@@ -71,6 +69,7 @@ $.extend(DataSource.prototype, {
         var listener_record = this.listeners[listener_id];
         if(dsid >= listener_record.dataset_index) {
 	  listener_record.listener.call(listener_record.listener_object, this.dataset[index]);
+          listener_record.dataset_index++;
         }
       }
     }
