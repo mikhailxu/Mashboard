@@ -33,11 +33,27 @@ body{
 #iuipad-content-panel > .toolbar{
     width: 705px;
 }
+body.fullscreen .ticket-entry{
+    margin: 0px;
+    padding: 5px;
+}
+body.fullscreen #iuipad-content-panel{
+    width: auto;
+}
+body.fullscreen #iuipad-content-panel > .toolbar{
+    width: auto;
+}
+body.fullscreen #iuipad-content-panel{
+    left:0px ;
+}
+body.fullscreen #iui-container{
+    display:none;
+}
 body, #iui-container > div{
     background:url("../images/whitey.png");
 }
 #iui-container, #iui-container .toolbar {
-    background: url("../iui/t/default/toolbar.png") #6d84a2 repeat-x;
+    background: url("../iui/t/default/toolbar.png") #6d84a2 repeat-x !important;
 }
 body.fullscreen {
     color:#ccc;
@@ -50,6 +66,6 @@ body.fullscreen .ticket-entry{
 body.fullscreen .ticket-entry .entry-name{
     color: #9CD9F6;
 }
-body.fullscreen body, .fullscreen #iui-container > div{
+body.fullscreen body, body.fullscreen #iui-container > div, body.fullscreen #iuipad-content-panel{
     background:url("../images/blacky.png");
 }
