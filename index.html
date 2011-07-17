@@ -78,7 +78,7 @@
 
 	<div id="ticker" class="panel content content-pane" title="Ticker">
 	  <h2>Ticker Widget Goes Here</h2>
-	  <span id="ticker">Ticker content</span>
+	  <span class="ticker">Ticker content</span>
 	  <ul>
 		<li>Description</li>
 		<li>Demo Panel</li>
@@ -154,7 +154,7 @@
   </div>
 
   <script>
-    var tick = new Ticker("#ticker");
+    var tick = new Ticker(".ticker");
     var githubDS = new DataSource({
       url: "https://github.com/api/v2/json/repos/show/mikhailxu/Mashboard", 
       process: function(data) {

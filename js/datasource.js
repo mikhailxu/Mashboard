@@ -11,8 +11,8 @@ function DataSource(options) {
     this.request = DataSource.defaults.request;
   }
   this.process = options.process;
-  this.interval = options.interval || 1000*1;
-  this.retain = options.retain || 32;
+  this.interval = options.interval || 1000*15;
+  this.retain = options.retain || 10;
 }
 DataSource.uid = 0;
 
@@ -35,11 +35,10 @@ $.extend(DataSource.prototype, {
   startup: function() {
     var self = this;
     this.shutdown();
-    console.log("startup!");
     this.interval_id = setInterval(function() {
-    console.log("request!");
       self.request();
     }, this.interval); 
+    self.request();
   },
   shutdown: function() {
     if(this.interval_id) clearInterval(this.interval_id);
