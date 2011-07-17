@@ -81,23 +81,17 @@
 
 
 	<div id="ticker" class="panel content ticker-wrapper content-pane" title="Ticker">
-          <h2>Ticker Widget Goes Here</h2>
           <div class="ticket-entry">
-              <span class="entry-name">Sean Gilligan</span>
-              <span class="entry-type">commited</span>
-              <span class="entry-body">copy ipad-demo.html up from samples subdir, fix paths, copy iui-pa</span>
-              <span class="entry-happened">on</span>
-              <span class="entry-time">three hours ago</span>
+              <span class="entry-name"></span>
+              <span class="entry-type"></span>
+              <span class="entry-body"></span>
+              <span class="entry-happened"></span>
+              <span class="entry-time"></span>
           </div>
           
-          <span class="ticker">Ticker content</span>
-          <span class="ticker2">Ticker stuff</span>
-	  <ul>
-		<li>Description</li>
-		<li>Demo Panel</li>
-		<li>Sample Data</li>
-		<li>JS Source</li>
-	  </ul>
+          <span class="ticker"></span>
+          <span class="ticker2"></span>
+
 	</div>
 	
 	<div id="html" class="panel content content-pane" title="HTML">
@@ -170,7 +164,7 @@
        '.entry-name' : '...name',
        '.entry-type' : '...type',
        '.entry-body' : '...body',
-       '.entry-happened' : '...happened',
+       '.entry-happened' : function() { return "on";},
        '.entry-time' : function() { return "<<compute time here>>"; }
     });
     var tick = new Ticker(".ticker", function(commit) {
@@ -181,7 +175,7 @@
         '...name' : '.author.name',
 	'...body' : '.message',
 	'...happened' : '.committed_time',
-	'...type' : function() { return "<<compute data type here>>"; }
+	'...type' : function() { return "committed"; }
       });
       return container.contents();
     });
@@ -206,12 +200,12 @@
         '...name' : '.from_user',
 	'...body' : '.text',
 	'...happened' : '.created_at',
-	'...type' : function() { return "<<compute data type here>>"; }
+	'...type' : function() { return "tweeted"; }
       });
       return container.contents();
     });
     var twitterDS = new DataSource({
-      url: "http://search.twitter.com/search.json?q=%23iosdevcamp&rpp=10",
+      url: "http://search.twitter.com/search.json?q=%23iosdevcamp&rpp=5",
       process: function(data){
         for(var i=0; i<data.results.length; i++) {
           this.emit(data.results[i]);

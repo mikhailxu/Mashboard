@@ -1,7 +1,7 @@
 #iuipad-content-panel{
     background:url("../images/whitey.png");
 }
-.ticket-entry .entry-time{
+.ticket-entry .entry-time, .ticket-entry .entry-happened{
     color: #BBB;
     font-style: italic;
 }
@@ -19,8 +19,8 @@
     padding:10px;
     border-radius:5px;
     -webkit-box-shadow: #999 1px 1px 6px;
-    height: 38px;
-    margin-bottom:20px;
+    height: 54px;
+    margin:20px;
 }
 body{
     color: #333;
