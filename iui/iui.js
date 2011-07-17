@@ -857,19 +857,23 @@ function setSplitScreen()
 	if (doSplitScreen)
 	{
 		iui.addClass(slideParent, "iui-ss");
+		iui.addClass(document.body, "iui-ss");
 	}
 	else
 	{
 		iui.removeClass(slideParent, "iui-ss");
+		iui.addClass(document.body, "iui-ss");
 	}
 	var doPopOver = (doSplitScreen && (iui.splitScreenConfig != ssConfig.noPopover)) || (iui.splitScreenConfig == ssConfig.alwaysPopover);
 	if (doPopOver)
 	{
-		iui.addClass(document.body, 'popover');
+		iui.addClass(slideParent, 'popover');
+		iui.addClass(contentEl, 'showtoc');
 	}
 	else
 	{
-		iui.removeClass(document.body, 'popover');
+		iui.removeClass(slideParent, 'popover');
+		if (contentEl != null) iui.removeClass(contentEl, 'showtoc');
 	}
 	
 	var hidePopOver = true;
@@ -953,24 +957,6 @@ function showContentPane(page)
  	{
  		contentTitle.innerHTML = page.title;
  	}
- 	// We really shouldn't be copying content here
- 	// But, if we must, we'll need to send events to support extensions
- 	// hmm...
- 	//sendEvent("load", contentEl);	
- 	
- 	// Hack for canvg support...
- 	// This needs to be moved out of iui.js, obviously...
-	var aNode = contentEl.querySelector("a[rel='iuicanvg']");
-	if (aNode && !iui.hasClass(aNode, 'iuiloaded'))	
-	{
-		var canvasNode = aNode.querySelector("canvas");
-		if (canvasNode)
-		{
-			canvg(canvasNode, aNode.href, {ignoreMouse: true, ignoreAnimation: true});
-			iui.addClass(aNode, 'iuiloaded');
-		}
-	}
-
 }
 
 function updatePage(page, fromPage)

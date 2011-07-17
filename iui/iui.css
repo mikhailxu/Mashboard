@@ -13,7 +13,7 @@ body {
     -webkit-text-size-adjust: none;
 }
 
-#iui-container > *:not(.toolbar) {
+#iui-container > *:not(.toolbar), #iuipad-content-panel {
     display: none;
     position: absolute;
     margin: 0;
@@ -29,12 +29,16 @@ body {
     -webkit-transform: translateX(0%);
 }
 
-#iui-container[orient="landscape"] > *:not(.toolbar) {
+body[orient="landscape"] #iui-container > *:not(.toolbar) {
     height: auto;
     min-height: 268px;
 }
 
 #iui-container > *[selected="true"] {
+    display: block;
+}
+
+body.iui-ss #iuipad-content-panel {
     display: block;
 }
 
@@ -65,7 +69,7 @@ li > a[selected="progress"] {
     height: 45px;
 }
 
-.popover #iui-container > .toolbar {
+#iui-container.popover > .toolbar {
     width: 320px;
 }
 
@@ -78,7 +82,7 @@ li > a[selected="progress"] {
     border-top: 1px solid #6d84a2;
     padding: 0 10px 10px 10px;
     height: 45px;
-    width: auto;
+    width: 700px;
 /*    width: 320px;*/
 }
 #iui-container .toolbar > h1, #iuipad-content-panel .toolbar > h1 {
@@ -107,14 +111,13 @@ li > a[selected="progress"] {
     width: 250px;
 }
 
-.contentBar {
+#iuipad-content-panel > .toolbar {
 	display: none;
 }
 
-.contentBar > h1 {
+#iuipad-content-panel > .toolbar > h1 {
     position: absolute;
     overflow: hidden;
-    left: 70%;
     margin: 1px 0 0 -75px;
     padding-top: 10px;
     height: 45px;
@@ -128,7 +131,7 @@ li > a[selected="progress"] {
     color: #FFFFFF;
 }
 
-#iui-container.iui-ss .contentBar {
+body.iui-ss #iuipad-content-panel > .toolbar {
 	display: block;
 }
 
@@ -475,7 +478,7 @@ fieldset > .row:last-child {
   display: none;
 }
 
-.popover #iui-container {
+#iui-container.popover {
   -webkit-border-radius: 3px;
   top: 30px;
   left: 30px;
@@ -486,16 +489,16 @@ fieldset > .row:last-child {
   position: absolute  !important;
 }
 
-.popover #iui-container .toolbar {
+#iui-container.popover .toolbar {
   background: none;
   background: -webkit-gradient(linear,center top,center bottom,from(#767c8a),color-stop(50%, #2f3950),color-stop(51%, #0d1c36),to(#030f2b));
 }
 
-.popover #iui-container > :not(.toolbar) {
+#iui-container.popover > :not(.toolbar) {
   position: static;
 }
 
-.popover #backButton {
+#iui-container.popover #backButton {
   background: none;
   color: #ffffff;
   padding-left: 5px;
@@ -516,13 +519,14 @@ fieldset > .row:last-child {
 
 .iui-ss #iuipad-content-panel {
   left: 320px;
+  position: relative;
 }
 
-*:not(.popover) #toc_button {
+#iuipad-content-panel #toc_button {
   display: none;
 }
 
-.popover #toc_button {
+#iuipad-content-panel.showtoc #toc_button {
   display: block;
 }
 
