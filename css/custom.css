@@ -11,6 +11,12 @@
 .ticket-entry .entry-body{
     text-overflow: ellipsis;
 }
+body.fullscreen .done-fullscreen{
+    display:block;
+}
+.done-fullscreen{
+    display:none;
+}
 .ticket-entry{
     width:94%;
     margin:0 auto;
