@@ -2,11 +2,19 @@
     background:url("../images/whitey.png");
 }
 .ticket-entry{
-    width:90%;
+    width:95%;
     margin:0 auto;
     clear:both;
-    background:url('../images/exclusive_paper.png');
+    background:url('../images/whitey2.png');
     padding:10px;
     border-radius:5px;
     -webkit-box-shadow: #999 1px 1px 6px;
+    height: 38px;
+}
+.ticket-entry .entry-body{
+    text-overflow: ellipsis;
+}
+body{
+    color: #333;
+    font-family: 'helvetica neue';
 }
