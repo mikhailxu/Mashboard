@@ -211,7 +211,7 @@
       return container.contents();
     });
     var twitterDS = new DataSource({
-      url: "http://search.twitter.com/search.json?q=%23pic&rpp=500",
+      url: "http://search.twitter.com/search.json?q=%23iosdevcamp&rpp=10",
       process: function(data){
         for(var i=0; i<data.results.length; i++) {
           this.emit(data.results[i]);

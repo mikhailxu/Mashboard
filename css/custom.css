@@ -26,3 +26,12 @@ body{
     color: #333;
     font-family: 'helvetica neue';
 }
+#iuipad-content-panel{
+    width: 700px;
+}
+body, #iui-container > div{
+    background:url("../images/whitey.png");
+}
+#iui-container, #iui-container .toolbar {
+    background: url("../iui/t/default/toolbar.png") #6d84a2 repeat-x;
+}
