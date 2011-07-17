@@ -5,7 +5,7 @@ function Ticker(selector, format) {
 
 $.extend(Ticker.prototype, {
   hear: function(data) {
-    $(this.selector).append(this.format(data));
+    $(this.selector).prepend(this.format(data));
   },
   addDataSource: function(source) {
     source.addListener(this.hear, this);
