@@ -9,6 +9,7 @@ function DataSource(options) {
     this.url = options.url;
     this.request = DataSource.defaults.request;
   }
+  this.description = options.description;
   this.process = options.process;
   this.interval = options.interval || 1000*15;
   this.retain = options.retain || 10;
