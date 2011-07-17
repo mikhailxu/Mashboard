@@ -21,6 +21,8 @@
     -webkit-box-shadow: #999 1px 1px 6px;
     height: 54px;
     margin:20px;
+    height: 64px;
+    line-height: 20px;
 }
 body{
     color: #333;
@@ -37,4 +39,18 @@ body, #iui-container > div{
 }
 #iui-container, #iui-container .toolbar {
     background: url("../iui/t/default/toolbar.png") #6d84a2 repeat-x;
+}
+.fullscreen body{
+    color:#ccc;
+}
+.fullscreen .ticket-entry{
+    background:none;
+    border:none;
+    -webkit-box-shadow:none;
+}
+.fullscreen .ticket-entry .entry-name{
+    color: #9CD9F6;
+}
+.fullscreen body, .fullscreen #iui-container > div{
+    background:url("../images/blacky.png");
 }
