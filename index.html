@@ -159,7 +159,9 @@
     var githubDS = new DataSource({
       url: "https://github.com/api/v2/json/commits/list/mikhailxu/Mashboard/master", 
       process: function(data) {
-        this.emit(data.commits.committed_date)
+        for(var i=0; i<data.commits.length; i++) {
+          this.emit(data.commits[i].committed_date);
+        }
       }
     });
     tick.addDataSource(githubDS);
@@ -169,9 +171,11 @@
     var twitterDS = new DataSource({
       url: "http://search.twitter.com/search.json?q=%23pic&rpp=500",
       process: function(data){
-          this.emit(data.results.created_at);
+          for(var i=0; i<data.results.length; i++) {
+            this.emit(data.results[i].created_at);
+          }
       }
-    }); 
+    });
     tick.addDataSource(twitterDS);
     twitterDS.startup();
 
