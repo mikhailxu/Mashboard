@@ -8,7 +8,7 @@ var githubDS = new DataSource({
   }
 });
 
-mashboard.dataSources.push(githubDS);
+Mashboard.dataSources.push(githubDS);
 
 var twitterDS = new DataSource({
   description: "#iosdevcamp Tweets",
@@ -20,5 +20,5 @@ var twitterDS = new DataSource({
   }
 });
 
-mashboard.dataSources.push(twitterDS);
+Mashboard.dataSources.push(twitterDS);
 

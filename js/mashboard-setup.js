@@ -21,7 +21,7 @@ var tick = new Ticker(".ticker", function(commit) {
   return container.contents();
 });
 tick.addDataSource(githubDS);
-githubDS.startup();
+//githubDS.startup();
 
 var ticktwitter = new Ticker(".ticker2", function(tweet) { 
   var container = $("<span/>");
@@ -38,4 +38,4 @@ var ticktwitter = new Ticker(".ticker2", function(tweet) {
   return container.contents();
 });
 ticktwitter.addDataSource(twitterDS);
-twitterDS.startup();
+//twitterDS.startup();
